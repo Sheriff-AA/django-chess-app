@@ -1,0 +1,94 @@
+{% load i18n %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PLAY WITH ME!</title>
+
+    <script src="{% static 'vendors/jquery.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap-table.min.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/chessboard-1.0.0.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/chessboard-1.0.0.min.css' %}" />
+    <link src="{% static 'js/chessboard-1.0.0.js' %}" />
+    <link src="{% static 'js/chessboard-1.0.0.min.js' %}" />
+
+
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap.min.css.map' %}" />
+
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap-theme.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap-theme.min.css.map' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap-table.min.css' %}" />
+
+
+    <script src="{% static 'vendors/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/chess.js' %}"></script>
+    {% comment %} <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"
+        integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD"
+        crossorigin="anonymous"></script> {% endcomment %}
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+    {% comment %} {% include 'css.html' %} 
+    {% include 'js.html' %} {% endcomment %}
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container-fluid">
+              <h1 id="logo">AI Chess</h1>
+          </div>
+        </nav></br></br></br>
+        </br></br></br><div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div id="mainWindow">
+                        <div id="piecesB"></div>
+                        <div id="board"></div>
+                        <div id="piecesW"></div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div id="secondWindow">
+                        <h3><span id="status">White to move</span></h3>
+                        <div id="moveTable">
+                            <table class="table table-striped table-condensed" id="pgn">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>White</th>
+                                        <th>Black</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div id="controls">
+                            <form class="form-inline">
+                                <button type="button" class="btn btn-default" id="backBtn" onclick="takeBack()";>Take Back</button>
+                                <button type="button" class="btn btn-default" id="reset" onclick="newGame()";>New Game</button>
+                                <select class="form-control" id="sel1">
+                                    <option value="5">Depth: 5</option>
+                                    <option value="4">Depth: 4</option>
+                                    <option value="3">Depth: 3</option>
+                                    <option value="2">Depth: 2</option>
+                                    <option value="1">Depth: 1</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% comment %} {% block content %} 
+    
+    {% endblock content %} {% endcomment %}
+  </body>
+</html>

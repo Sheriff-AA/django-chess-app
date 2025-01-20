@@ -10,9 +10,11 @@ STATICFILES_VENDOR_DIR = getattr(settings,'STATICFILES_VENDOR_DIR')
 VENDOR_STATICFILES = {
     "jquery.min.js": "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js",
     "bootstrap-table.min.js": "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js",
-    "flowbite.min.js": "https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js",
     "bootstrap.min.css": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
+    "bootstrap.min.css.map": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css.map",
+    "bootstrap-table.min.css":"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css",
     "bootstrap-theme.min.css": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css",
+    "bootstrap-theme.min.css.map": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css.map",
     "bootstrap.min.js": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",
     "chess.js": "https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js",
 }
