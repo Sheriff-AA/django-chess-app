@@ -107,17 +107,10 @@ var getResponseMove = function() {
 
 // did this based on a stackoverflow answer
 // http://stackoverflow.com/questions/29493624/cant-display-board-whereas-the-id-is-same-when-i-use-chessboard-js
-// setTimeout(function() {
-//     board = ChessBoard('board', cfg);
-//     // updateStatus();
-// }, 0);
-
-document.addEventListener('DOMContentLoaded', function () {
-  setTimeout(function() {
+setTimeout(function() {
     board = ChessBoard('board', cfg);
     // updateStatus();
-  }, 0);
-});
+}, 0);
 
 var setPGN = function() {
   var table = document.getElementById("pgn");

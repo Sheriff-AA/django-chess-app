@@ -5,13 +5,12 @@ from utils.chess_engine import Engine
 
 
 def get_move(request, depth, fen):
-    print(depth)
+    # print(depth)
     print("Calculating...")
-    # Assuming `Engine` is imported and available
     engine = Engine(fen)
     move = engine.iterative_deepening(depth - 1)
-    print("Move found!", move)
-    print()
+    # print("Move found!", move)
+    # print()
     return HttpResponse(move)
 
 
