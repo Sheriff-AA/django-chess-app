@@ -300,9 +300,9 @@ class Engine:
         # depth_neg, depth_pos, move, alpha, beta, prev_moves, maximiser)
         move_list, score  = self.alpha_beta(1, 0, None, -10000001, 10000001, None, self.board.turn)
         for i in range(2, depth + 1):
-            print("Iteration", i)
+            # print("Iteration", i)
             move_list, score = self.alpha_beta(i, 0, None, -10000001, 10000001, move_list, self.board.turn)
-        print("Depth calculated:", len(move_list))
+        # print("Depth calculated:", len(move_list))
         return str(move_list[-1])
 
 

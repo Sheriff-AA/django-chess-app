@@ -16,3 +16,6 @@ def get_move(request, depth, fen):
 
 def test_get(request, tester):
     return HttpResponse(tester)
+
+
+

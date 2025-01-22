@@ -3,6 +3,7 @@ var board,
   statusEl = $('#status'),
   fenEl = $('#fen'),
   pgnEl = $('#pgn');
+  firstMove = true;
 
 
 // do not pick up pieces if the game is over
@@ -16,15 +17,21 @@ var onDragStart = function(source, piece, position, orientation) {
 };
 
 var onDrop = function(source, target) {
+  var promotion = $('#promotion').val();
   // see if the move is legal
   var move = game.move({
     from: source,
     to: target,
-    promotion: 'q' // NOTE: always promote to a queen for example simplicity
+    promotion: promotion // NOTE: always promote to a queen for example simplicity
   });
 
   // illegal move
   if (move === null) return 'snapback';
+
+   if (firstMove) {
+      $('#sideSelector').hide();
+      firstMove = false;
+    }
 
   updateStatus();
   getResponseMove();
@@ -68,6 +75,7 @@ var updateStatus = function() {
   getLastCapture();
   createTable();
   updateScroll();
+  getCapturedPieces();
 
   statusEl.html(status);
   fenEl.html(game.fen());
@@ -107,10 +115,12 @@ var getResponseMove = function() {
 
 // did this based on a stackoverflow answer
 // http://stackoverflow.com/questions/29493624/cant-display-board-whereas-the-id-is-same-when-i-use-chessboard-js
-setTimeout(function() {
-    board = ChessBoard('board', cfg);
-    // updateStatus();
-}, 0);
+$(document).ready(function() {
+    setTimeout(function() {
+        board = ChessBoard('board', cfg);
+        // updateStatus();
+    }, 0);
+});
 
 var setPGN = function() {
   var table = document.getElementById("pgn");
@@ -163,9 +173,11 @@ var setStatus = function(status) {
 }
 
 var takeBack = function() {
+   var playerColor = board.orientation();
     game.undo();
-    if (game.turn() != "w") {
-        game.undo();
+   if ((playerColor === 'white' && game.turn() === 'b') || 
+      (playerColor === 'black' && game.turn() === 'w')) {
+      game.undo();
     }
     board.position(game.fen());
     updateStatus();
@@ -175,6 +187,9 @@ var newGame = function() {
     game.reset();
     board.start();
     updateStatus();
+
+    $('#sideSelector').show();
+    firstMove = true;
 }
 
 var getCapturedPieces = function() {
@@ -194,4 +209,55 @@ var getLastCapture = function() {
         console.log(history[index]["captured"]);
     }
 }
+
+
+var getCapturedPieces = function() {
+    var history = game.history({ verbose: true });
+    var capturedWhite = [];
+    var capturedBlack = [];
+
+    for (var i = 0; i < history.length; i++) {
+        if ("captured" in history[i]) {
+            if (history[i].color === 'w') {
+                capturedBlack.push(history[i].captured);
+            } else {
+                capturedWhite.push(history[i].captured);
+            }
+        }
+    }
+
+    // Render captured pieces
+    renderCapturedPieces('#piecesW', capturedWhite, 'w');
+    renderCapturedPieces('#piecesB', capturedBlack, 'b');
+};
+
+var renderCapturedPieces = function(selector, pieces, color) {
+    var html = '';
+    for (var i = 0; i < pieces.length; i++) {
+        html += `<img src="/static/img/chesspieces/wikipedia/${color}${pieces[i].toUpperCase()}.png" alt="${pieces[i]}">`;
+    }
+    $(selector).html(html);
+};
+
+var chooseSide = function(side) {
+    if (side === 'black') {
+        board.orientation('black');
+        game.reset();
+        getResponseMove(); // Make the AI move first
+    } else {
+        board.orientation('white');
+        game.reset();
+    }
+    updateStatus();
+    $('#sideSelector').hide();
+    firstMove = false;
+};
+
+var changeTheme = function(theme) {
+    $('#board').removeClass().addClass(`board-${theme}`);
+};
+
+$(document).ready(function() {
+    $('#sideSelector').show(); // Hide the selector initially
+});
 

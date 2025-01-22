@@ -35,3 +35,31 @@ body {
     bottom: 0;
 }
 
+.captured-pieces {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.captured-pieces img {
+    width: 30px;
+    height: 30px;
+}
+
+.board-default {
+    background: #f0d9b5;
+}
+
+.board-green {
+    background: #6aa84f;
+}
+
+.board-blue {
+    background: #6fa8dc;
+}
+
+.board-dark {
+    background: #3c3c3c;
+}
+
