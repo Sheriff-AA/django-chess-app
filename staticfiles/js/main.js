@@ -258,6 +258,6 @@ var changeTheme = function(theme) {
 };
 
 $(document).ready(function() {
-    $('#sideSelector').show(); // Hide the selector initially
+    $('#sideSelector').show();
 });
 

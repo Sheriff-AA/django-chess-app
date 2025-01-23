@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import chess
+from django.http import JsonResponse
 
 from utils.chess_engine import Engine
 
@@ -16,6 +18,5 @@ def get_move(request, depth, fen):
 
 def test_get(request, tester):
     return HttpResponse(tester)
-
 
 
