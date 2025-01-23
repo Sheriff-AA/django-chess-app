@@ -1,6 +1,8 @@
 body {
     padding-top: 70px;
     align-items: center;
+    background-color: gray;
+    font-family: Arial, sans-serif;
 }
 
 #board {
@@ -10,12 +12,13 @@ body {
 }
 
 .navbar {
-    background-color: red;
+    background-color: #3c3c3c;
 }
 
 #logo {
     position: relative;
     left: 10%;
+    color: white
 }
 
 #secondWindow {
@@ -30,10 +33,10 @@ body {
     overflow: auto;
 }
 
-#controls {
+/* #controls {
     position: absolute;
     bottom: 0;
-}
+} */
 
 .captured-pieces {
     display: flex;
@@ -63,3 +66,22 @@ body {
     background: #3c3c3c;
 }
 
+.text-center {
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+}

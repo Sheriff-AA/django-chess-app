@@ -286,18 +286,18 @@ var evaluateCurrentPosition = function() {
     evaluatePosition(depth, fen, function(bestMove, evaluation) {
         // Display the evaluation in the #evaluation tag
         var evaluationText = evaluation > 0 
-            ? `White is better by ${evaluation / 100} pawns` 
+            ? `White is better by ${evaluation / 100}` 
             : evaluation < 0 
-                ? `Black is better by ${-evaluation / 100} pawns` 
+                ? `Black is better by ${-evaluation / 100}` 
                 : `Position is equal`;
 
-        if (Math.abs(evaluation) >= 100) {
+        if (Math.abs(evaluation) >= 10000) {
             evaluationText = evaluation > 0 
                 ? "White is winning (mate in sight)" 
                 : "Black is winning (mate in sight)";
         }
 
-        $('#evaluation').html(`Evaluation: ${evaluationText}`);
+        $('#evaluation').html(`Eval: ${evaluationText}`);
     });
 };
 

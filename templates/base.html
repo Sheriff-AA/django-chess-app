@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PLAY WITH ME!</title>
+    <title>PLAY CHESS WITH ME!</title>
 
     {% include 'css.html' %} 
     {% include 'js.html' %}
@@ -15,17 +15,33 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-fixed-top">
         <div class="container-fluid">
-            <h1 id="logo">Friendly AI Chess Bot</h1>
+            <h1 id="logo">KNIGHTMARE CHESS BOT</h1>
         </div>
     </nav></br></br></br>
         </br></br></br>
     <div class="container">
+        <div class="text-center bg-light p-3 rounded shadow">
+            <h2>Meet "Knighmare 3000" 🤖</h2>
+            <p>
+                Knightmare 3000 is your friendly neighborhood chess bot, designed to play at a maximum 1200 ELO. 
+                It was built using <strong>JavaScript</strong>, <strong>Python</strong>, and <strong>Django</strong>, with a touch of AI magic from 
+                the <strong>Stockfish</strong> engine for evaluation. Whether you're a beginner or looking for a decent challenge, Knightmare 3000 has your back!
+            </p>
+            <p>
+                Depth 5 is the maximum level of difficulty, and it's recommended to play at a lower depth if you're a beginner. It also determines the strength of the evaluation function.
+            </p>
+            <p>
+                Warning: It won't hold back on the board! 😉
+            </p>
+        </div>
+    </div>
+    <div class="container mb-10">
         <div class="row">
             <div class="col-xs-12 col-md-6">
-                <div id="mainWindow">
-                    <h3 id="evaluation">Evaluation: --</h3>
+                <div id="mainWindow" class="p-3 bg-light border rounded">
+                    <h3 id="evaluation">Eval: --</h3>
                     <div id="piecesB" class="captured-pieces"></div>
                     <div id="board"></div>
                     <div id="piecesW" class="captured-pieces"></div>
@@ -76,8 +92,8 @@
                     </div>
                     <div id="controls">
                         <form class="form-inline">
-                            <button type="button" class="btn btn-default" id="backBtn" onclick="takeBack()";>Take Back</button>
-                            <button type="button" class="btn btn-default" id="reset" onclick="newGame()";>New Game</button>
+                            <button type="button" class="btn btn-darkt" id="backBtn" onclick="takeBack()";>Take Back</button>
+                            <button type="button" class="btn btn-dark" id="reset" onclick="newGame()";>New Game</button>
                             <select class="form-control" id="sel1">
                                 <option value="5">Depth: 5</option>
                                 <option value="4">Depth: 4</option>
