@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
 
-from moves.views import get_move
+from moves.views import get_move, evaluate_position
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='base.html'), name='index'),
     path('move/<int:depth>/<path:fen>/', get_move, name='get_move'),
+    path('eval/<int:depth>/<path:fen>/', evaluate_position, name='evaluate_position'),
 ]
 

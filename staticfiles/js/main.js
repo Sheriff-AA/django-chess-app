@@ -76,6 +76,7 @@ var updateStatus = function() {
   createTable();
   updateScroll();
   getCapturedPieces();
+  evaluateCurrentPosition();
 
   statusEl.html(status);
   fenEl.html(game.fen());
@@ -260,4 +261,45 @@ var changeTheme = function(theme) {
 $(document).ready(function() {
     $('#sideSelector').show();
 });
+
+var evaluatePosition = function(depth, fen, callback) {
+    // Make an AJAX GET request to the backend endpoint
+    var encodedFen = encodeURIComponent(fen);
+    $.get(`/eval/${depth}/${encodedFen}`, function(data) {
+        if (data.best_move) {
+            // If there's a valid response, execute the callback with the best move and evaluation
+            callback(data.best_move, data.evaluation);
+        } else {
+            console.error("Error in evaluation response:", data.error);
+        }
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error("Request failed:", textStatus, errorThrown);
+    });
+};
+
+var evaluateCurrentPosition = function() {
+    var e = document.getElementById("sel1"); // Get depth from dropdown
+    var depth = e.options[e.selectedIndex].value;
+    var fen = game.fen(); // Get current board position in FEN notation
+
+    // Make the backend request for evaluation
+    evaluatePosition(depth, fen, function(bestMove, evaluation) {
+        // Display the evaluation in the #evaluation tag
+        var evaluationText = evaluation > 0 
+            ? `White is better by ${evaluation / 100} pawns` 
+            : evaluation < 0 
+                ? `Black is better by ${-evaluation / 100} pawns` 
+                : `Position is equal`;
+
+        if (Math.abs(evaluation) >= 100) {
+            evaluationText = evaluation > 0 
+                ? "White is winning (mate in sight)" 
+                : "Black is winning (mate in sight)";
+        }
+
+        $('#evaluation').html(`Evaluation: ${evaluationText}`);
+    });
+};
+
+
 
