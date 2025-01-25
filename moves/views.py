@@ -38,7 +38,7 @@ def evaluate_position(request, depth, fen):
 
             # Extract the best move and evaluation score
             best_move = result.move.uci()
-            score = evaluation["score"].relative.score(mate_score=10000)  # Score centipawns or mate
+            score = evaluation["score"].white().score(mate_score=10000)  # Score centipawns or mate
 
             return JsonResponse({
                 "best_move": best_move,

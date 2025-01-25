@@ -14,100 +14,111 @@
 
   </head>
 
-  <body>
-    <nav class="navbar navbar-fixed-top">
-        <div class="container-fluid">
-            <h1 id="logo">KNIGHTMARE CHESS BOT</h1>
-        </div>
-    </nav></br></br></br>
-        </br></br></br>
-    <div class="container">
-        <div class="text-center bg-light p-3 rounded shadow">
-            <h2>Meet "Knighmare 3000" 🤖</h2>
-            <p>
-                Knightmare 3000 is your friendly neighborhood chess bot, designed to play at a maximum 1200 ELO. 
-                It was built using <strong>JavaScript</strong>, <strong>Python</strong>, and <strong>Django</strong>, with a touch of AI magic from 
-                the <strong>Stockfish</strong> engine for evaluation. Whether you're a beginner or looking for a decent challenge, Knightmare 3000 has your back!
-            </p>
-            <p>
-                Depth 5 is the maximum level of difficulty, and it's recommended to play at a lower depth if you're a beginner. It also determines the strength of the evaluation function.
-            </p>
-            <p>
-                Warning: It won't hold back on the board! 😉
-            </p>
-        </div>
-    </div>
-    <div class="container mb-10">
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <div id="mainWindow" class="p-3 bg-light border rounded">
-                    <h3 id="evaluation">Eval: --</h3>
-                    <div id="piecesB" class="captured-pieces"></div>
-                    <div id="board"></div>
-                    <div id="piecesW" class="captured-pieces"></div>
-                </div>
-
+    <body>
+        <nav class="navbar navbar-fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://sherifproductions.com">
+                    <img src="https://sherifproductions.com/static/assets/logo.0ce75409e220.png" alt="Logo" width="30" height="24">
+                </a>
+                <h1 id="logo">KNIGHTMARE CHESS BOT</h1>
             </div>
-            <div class="col-xs-12 col-md-6">
-                <div id="secondWindow">
-                    <div id="promotionSelector">
-                        <label for="promotion">Promotion Piece:</label>
-                        <select class="form-control" id="promotion">
-                            <option value="q">Queen</option>
-                            <option value="r">Rook</option>
-                            <option value="b">Bishop</option>
-                            <option value="n">Knight</option>
-                        </select>
+        </nav>
+            </br></br></br>
+        <div class="container">
+            <div class="text-center p-4 rounded shadow-lg"  style="background: linear-gradient(135deg, #f0f9ff,rgb(136, 163, 168));">
+                <h2 class="text-primary mb-3">Meet "Knighmare 3000" 🤖</h2>
+                <p class='lead'>
+                    Knightmare 3000 is your friendly neighborhood chess bot, designed to play at a maximum 1200 ELO. 
+                    It was built using <strong>JavaScript</strong>, <strong>Python</strong>, and <strong>Django</strong>, with a touch of AI magic from 
+                    the <strong>Stockfish</strong> engine for evaluation. Whether you're a beginner or looking for a decent challenge, Knightmare 3000 has your back!
+                </p>
+                <p>
+                    Depth 5 is the maximum level of difficulty, and it's recommended to play at a lower depth if you're a beginner. It also determines the strength of the evaluation function.
+                </p>
+                <p class="font-italic text-muted">
+                    Warning: It won't hold back on the board! 😉
+                </p>
+            </div>
+        </div>
+        <div class="content-box container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div id="mainWindow" class="p-3 border rounded">
+                        <h3 id="evaluation">Eval: --</h3>
+                        <div id="piecesB" class="captured-pieces"></div>
+                        <div id="board"></div>
+                        <div id="piecesW" class="captured-pieces"></div>
                     </div>
 
-                    <div id="themeSelector">
-                        <label for="theme">Board Theme:</label>
-                        <select class="form-control" id="theme" onchange="changeTheme(this.value)">
-                            <option value="default">Default</option>
-                            <option value="green">Green</option>
-                            <option value="blue">Blue</option>
-                            <option value="dark">Dark</option>
-                        </select>
-                    </div>
-                    <div id="sideSelector">
-                        <label for="side">Play as:</label>
-                        <select class="form-control" id="side" onchange="chooseSide(this.value)">
-                            <option value="white">White</option>
-                            <option value="black">Black</option>
-                        </select>
-                    </div>
-
-                    <h3><span id="status">White to move</span></h3>
-
-                    <div id="moveTable">
-                        <table class="table table-striped table-condensed" id="pgn">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>White</th>
-                                    <th>Black</th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                    <div id="controls">
-                        <form class="form-inline">
-                            <button type="button" class="btn btn-darkt" id="backBtn" onclick="takeBack()";>Take Back</button>
-                            <button type="button" class="btn btn-dark" id="reset" onclick="newGame()";>New Game</button>
-                            <select class="form-control" id="sel1">
-                                <option value="5">Depth: 5</option>
-                                <option value="4">Depth: 4</option>
-                                <option value="3">Depth: 3</option>
-                                <option value="2">Depth: 2</option>
-                                <option value="1">Depth: 1</option>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div id="secondWindow">
+                        <div id="promotionSelector">
+                            <label for="promotion">Promotion Piece:</label>
+                            <select class="form-control" id="promotion">
+                                <option value="q">Queen</option>
+                                <option value="r">Rook</option>
+                                <option value="b">Bishop</option>
+                                <option value="n">Knight</option>
                             </select>
-                        </form>
+                        </div>
+
+                        <div id="themeSelector">
+                            <label for="theme">Board Theme:</label>
+                            <select class="form-control" id="theme" onchange="changeTheme(this.value)">
+                                <option value="default">Default</option>
+                                <option value="green">Green</option>
+                                <option value="blue">Blue</option>
+                                <option value="dark">Dark</option>
+                            </select>
+                        </div>
+                        <div id="sideSelector">
+                            <label for="side">Play as:</label>
+                            <select class="form-control" id="side" onchange="chooseSide(this.value)">
+                                <option value="white">White</option>
+                                <option value="black">Black</option>
+                            </select>
+                        </div>
+
+                        <h3><span id="status">White to move</span></h3>
+
+                        <div id="moveTable">
+                            <table class="table table-striped table-condensed" id="pgn">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>White</th>
+                                        <th>Black</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div id="controls">
+                            <form class="form-inline">
+                                <button type="button" class="btn btn-darkt" id="backBtn" onclick="takeBack()";>Take Back</button>
+                                <button type="button" class="btn btn-dark" id="reset" onclick="newGame()";>New Game</button>
+                                <select class="form-control" id="sel1">
+                                    <option value="5">Depth: 5</option>
+                                    <option value="4">Depth: 4</option>
+                                    <option value="3">Depth: 3</option>
+                                    <option value="2">Depth: 2</option>
+                                    <option value="1">Depth: 1</option>
+                                </select>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </body>
+    <footer class="bg-body-tertiary text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        Made with ❤️ by:
+        <a class="text-body" href="https://sherifproductions.com/">Sherif</a>
     </div>
-  </body>
+    <!-- Copyright -->
+    </footer>
 
 </html>
 
