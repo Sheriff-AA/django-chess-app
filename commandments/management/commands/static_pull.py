@@ -8,7 +8,6 @@ from django.core.management.base import BaseCommand
 STATICFILES_VENDOR_DIR = getattr(settings,'STATICFILES_VENDOR_DIR')
 
 VENDOR_STATICFILES = {
-    "jquery.min.js": "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js",
     'jquery.js': "https://code.jquery.com/jquery-3.7.1.js",
     "bootstrap-table.min.js": "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js",
     "bootstrap.min.css": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",

@@ -3,3 +3,5 @@ requests
 python-decouple
 python-chess==1.999
 chess==1.10.0
+gunicorn
+
