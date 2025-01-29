@@ -70,7 +70,7 @@ RUN printf "#!/bin/bash\n" > ./paracord_runner.sh && \
 
 # make the bash script executable
 RUN chmod +x paracord_runner.sh
-RUN chmod +x stockfish-windows-x86-64-avx2.exe
+RUN chmod +x /code/stockfish-ubuntu-x86-64-avx2
 
 # Clean up apt cache to reduce image size
 RUN apt-get remove --purge -y \
