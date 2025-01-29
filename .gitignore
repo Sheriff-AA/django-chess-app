@@ -1,4 +1,5 @@
 staticfiles/vendors
+staticfiles/fonts
 cdn/
 
 # Byte-compiled / optimized / DLL files
