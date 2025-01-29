@@ -1,6 +1,7 @@
 staticfiles/vendors
 staticfiles/fonts
 cdn/
+stockfish-windows-x86-64-avx2.exe
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -8,7 +8,8 @@ import chess.engine
 
 from utils.chess_engine import Engine
 
-STOCKFISH_PATH = os.path.join(settings.BASE_DIR, "stockfish-windows-x86-64-avx2.exe")
+# STOCKFISH_PATH = os.path.join(settings.BASE_DIR, "stockfish-windows-x86-64-avx2.exe")   Windows
+STOCKFISH_PATH = os.path.join(settings.BASE_DIR, "stockfish-ubuntu-x86-64-avx2")
 
 
 def get_move(request, depth, fen):
