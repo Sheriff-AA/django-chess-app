@@ -50,11 +50,7 @@ This is a web-based chess application built using Django, JavaScript, and the St
    ```
 
 4. **Set up environment variables:**
-   Create a 
-
-.env
-
- file in the root directory and add the following:
+   Create a .env file in the root directory and add the following:
    ```env
    DJANGO_SECRET_KEY=your_secret_key
    DJANGO_DEBUG=True
@@ -79,10 +75,10 @@ This is a web-based chess application built using Django, JavaScript, and the St
 
 8. **Access the application:**
    Open your browser and go to 
+   ```sh
+   http://127.0.0.1:8000
+   ```
 
-http://127.0.0.1:8000
-
-.
 
 ## Docker Setup
 
@@ -98,10 +94,9 @@ http://127.0.0.1:8000
 
 3. **Access the application:**
    Open your browser and go to 
-
-http://127.0.0.1:8000
-
-.
+   ```sh
+   http://127.0.0.1:8000
+   ```
 
 ## Time Spent
 
@@ -141,5 +136,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 - [Django](https://www.djangoproject.com/) for the robust web framework.
 - [Chessboard.js](https://github.com/oakmac/chessboardjs) for the chessboard UI.
 - [Bootstrap](https://getbootstrap.com/) for the responsive design framework.
-```
 
