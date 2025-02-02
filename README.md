@@ -2,6 +2,8 @@
 
 This is a web-based chess application built using Django, JavaScript, and the Stockfish chess engine. The application allows users to play chess against an AI opponent with varying difficulty levels.
 
+You can access the live website [here](https://knighmare-chess.up.railway.app/)
+
 ## Technologies Used
 
 - **Backend:**
